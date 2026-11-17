@@ -17,7 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-};
+
 const $ = id => document.getElementById(id);
 const setupNotice=$("adminSetupNotice"), signedOut=$("adminSignedOut"), signedIn=$("adminSignedIn");
 const configured = firebaseConfig.apiKey.startsWith("AIza") && !firebaseConfig.projectId.includes("PASTE_");
