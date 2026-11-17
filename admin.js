@@ -3,13 +3,16 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, initializeFirestore, persistentLocalCache, persistentMultipleTabManager, collection, addDoc, doc, getDoc, getDocs, updateDoc, deleteDoc, query, where, orderBy, serverTimestamp, enableIndexedDbPersistence } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+
 const firebaseConfig = {
-  apiKey: "PASTE_YOUR_FIREBASE_API_KEY",
-  authDomain: "PASTE_YOUR_PROJECT.firebaseapp.com",
-  projectId: "PASTE_YOUR_PROJECT_ID",
-  storageBucket: "PASTE_YOUR_PROJECT.appspot.com",
-  messagingSenderId: "PASTE_YOUR_SENDER_ID",
-  appId: "PASTE_YOUR_APP_ID"
+  apiKey: "AIzaSyABaTaBAsRwiWI3SytQKLB7MxSkLqqKOFo",
+  authDomain: "project-sagip-lobo.firebaseapp.com",
+  projectId: "project-sagip-lobo",
+  storageBucket: "project-sagip-lobo.firebasestorage.app",
+  messagingSenderId: "413881449792",
+  appId: "1:413881449792:web:123035fc686728eb070ea5"
+};
+
 };
 const $ = id => document.getElementById(id);
 const setupNotice=$("adminSetupNotice"), signedOut=$("adminSignedOut"), signedIn=$("adminSignedIn");
