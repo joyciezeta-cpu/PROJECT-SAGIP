@@ -4,6 +4,12 @@ import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from
 import { getFirestore, initializeFirestore, persistentLocalCache, persistentMultipleTabManager, collection, addDoc, doc, getDoc, getDocs, updateDoc, deleteDoc, query, where, orderBy, serverTimestamp, enableIndexedDbPersistence } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyABaTaBAsRwiWI3SytQKLB7MxSkLqqKOFo",
   authDomain: "project-sagip-lobo.firebaseapp.com",
@@ -12,6 +18,9 @@ const firebaseConfig = {
   messagingSenderId: "413881449792",
   appId: "1:413881449792:web:123035fc686728eb070ea5"
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 };
 const $ = id => document.getElementById(id);
