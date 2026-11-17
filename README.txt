@@ -32,3 +32,21 @@ IMPORTANT LIMITATIONS
 - Emergency contact numbers, school evacuation maps, assembly areas, and response procedures are placeholders or general reminders until validated and approved by school personnel and partner agencies.
 - This app does not replace official emergency response systems, school protocols, or instructions from authorities.
 - Before actual implementation, add secure authentication, database security rules, server-side report submission, offline queue/synchronization, audit logs, backups, privacy notice, and retention procedures.
+
+PHASE 2 – SAGIP-ADMIN
+See FIREBASE_SETUP.txt. Firebase must be configured and the supplied Firestore and Storage security rules deployed before administrator login/content management works. Never publish private service-account keys.
+
+PHASE 2 – SAGIP-ADMIN
+See FIREBASE_SETUP.txt for Firebase Authentication/Firestore setup and free-platform resource-link workflow. Cloud Storage direct uploads are intentionally excluded to avoid requiring Firebase Blaze billing.
+
+
+PHASE 2 – SAGIP-ADMIN
+- admin.js: Firebase Authentication and content-management interface
+- firestore.rules: starter Firestore access rules
+- storage.rules: starter Storage upload/read rules
+- FIREBASE_SETUP.txt: setup and account provisioning guide
+
+SECURITY AND SYNC NOTES
+Firebase must be configured before administrator sign-in works. Only active School Head and DRRM Coordinator accounts with matching Firestore user role documents are authorized by the starter rules. There is no public sign-up.
+Published content and its attachments are publicly readable. Do not upload confidential or sensitive personal information.
+Firestore offline persistence can cache previously read content and queue supported document writes while offline. File uploads still require internet in this version. Phase 1 hazard observations remain device-local until a later shared-report integration.

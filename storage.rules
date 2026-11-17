@@ -1,0 +1,21 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAdmin() {
+      return request.auth != null
+        && firestore.exists(/databases/(default)/documents/users/$(request.auth.uid))
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.active == true
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role in ['School Head', 'DRRM Coordinator'];
+    }
+
+    // Uploaded learning materials and approved public content attachments.
+    // Only authorized administrators can upload, replace, or delete files.
+    match /content/{userId}/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin()
+        && request.auth.uid == userId
+        && request.resource.size < 25 * 1024 * 1024
+        && request.resource.contentType.matches('(application/pdf|image/.*|video/mp4|video/webm|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.ms-excel|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)');
+    }
+  }
+}

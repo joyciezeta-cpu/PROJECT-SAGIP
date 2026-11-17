@@ -1,0 +1,56 @@
+PROJECT SAGIP-LOBO – SAGIP-ADMIN PHASE 2
+Firebase setup and deployment guide
+
+IMPORTANT
+The web app files are a frontend integration. Secure administrator access is NOT active until you create and configure your own Firebase project, publish the supplied security rules, and provision the two administrator accounts. Do not publish passwords or private service-account keys in GitHub.
+
+A. CREATE A FIREBASE PROJECT
+1. Open https://console.firebase.google.com/ and sign in with the school/project owner's Google account.
+2. Create a project named project-sagip-lobo (or another available project ID).
+3. Add a Web App to the project and copy its Firebase web configuration.
+4. In Firebase Authentication > Sign-in method, enable Email/Password.
+5. In Firestore Database, create a database. Choose a location suitable for your users and note that location cannot easily be changed later.
+6. In Storage, get started and review the applicable plan and billing requirements. Firebase Storage availability and no-cost quotas can change; confirm current terms before enabling. Do not assume every upload is free.
+
+B. CONNECT THE WEB APP
+1. In GitHub repository PROJECT-SAGIP, open admin.js and choose Edit.
+2. Replace the six PASTE_YOUR... values in firebaseConfig with the values from Firebase Console > Project settings > Your apps > SDK setup and configuration.
+3. Do not put service-account keys or private secrets in this file. Firebase web config is public configuration; security comes from Authentication and Rules.
+4. Commit admin.js.
+
+C. PUBLISH SECURITY RULES
+1. Firebase Console > Firestore Database > Rules. Replace the rules with firestore.rules from this package and Publish.
+2. Firebase Console > Storage > Rules. Replace the rules with storage.rules from this package and Publish.
+3. Review the rules with a knowledgeable technical reviewer before real deployment. These starter rules allow published content and attached content files to be publicly readable. Do not upload sensitive learner records, medical details, private contact lists, or confidential documents.
+
+D. CREATE TWO ADMINISTRATOR ACCOUNTS
+1. Firebase Console > Authentication > Users > Add user.
+2. Create an account for the School Head and another for the DRRM Coordinator using their authorized institutional email addresses.
+3. Copy each user's UID.
+4. In Firestore, create a document in collection users with document ID exactly equal to that user's UID.
+5. For the School Head document, add fields:
+   role (string): School Head
+   active (boolean): true
+6. For the DRRM Coordinator document, add fields:
+   role (string): DRRM Coordinator
+   active (boolean): true
+7. Do not create a public sign-up form. Only the project owner should provision these accounts and role documents. Disable an account by setting active to false and disabling the user in Authentication.
+
+E. GITHUB PAGES
+1. Keep GitHub Pages configured for branch main and folder /(root).
+2. Upload/replace index.html, styles.css, app.js, manifest.webmanifest, service-worker.js, README.txt, and add admin.js to the repository root.
+3. Upload firestore.rules, storage.rules, and this guide only if you want to retain project documentation in GitHub. Rules files in GitHub do NOT become active automatically; paste/publish them in Firebase Console.
+4. Keep your existing assets folder and logo. Do not delete them.
+5. Wait for GitHub Pages deployment, then open the site and hard-refresh / clear site data if old CSS or JS is cached.
+
+F. ONLINE/OFFLINE BEHAVIOR AND LIMITATIONS
+- Public app shell and pages can be cached after the first successful HTTPS visit.
+- Firestore persistent local cache can keep previously read records available offline and queue supported document writes for later synchronization. The user must reconnect for the queue to sync.
+- File uploads require connectivity in this version; offline file upload queue is not implemented.
+- The SAGIP-BANTAY observation form from Phase 1 still saves to that browser/device only. It is NOT yet submitted to Firestore or visible to administrators. A later integration is required for secure shared incident/hazard report submission.
+- Admin sign-in and initial permission verification require connectivity. Do not treat the role-preview selector as security.
+- Do not store sensitive personal information in public content. Obtain appropriate approvals and follow school and DepEd data privacy requirements.
+- Test with non-sensitive sample content before operational use. Test both administrator roles, unauthorized accounts, public visitor access, attachment permissions, offline behavior, and restoration of connectivity.
+
+G. FREE-TIER / COST CHECK
+GitHub Pages is suitable for static hosting. Firebase Authentication, Firestore, and Storage have separate quotas, plan requirements, and billing terms. Check the current Firebase pricing and whether a billing account is required for Storage in your region before enabling it. Set budget alerts where available and monitor usage.

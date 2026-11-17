@@ -27,6 +27,7 @@
     <a href="#bantay" data-page="bantay">⌖ <span>SAGIP-BANTAY</span></a>
     <a href="#kaagapay" data-page="kaagapay">♧ <span>SAGIP-KAAGAPAY</span></a>
     <a href="#sigurado" data-page="sigurado">▦ <span>SAGIP-SIGURADO</span></a>
+    <a href="#admin" data-page="admin">⚙ <span>SAGIP-ADMIN</span></a>
     <a href="#about" data-page="about">◈ <span>About the Project</span></a>
   </nav>
   <div class="side-note"><b>Be informed. Be prepared. Be protected.</b><p>School, family, and community working together for safety.</p></div>
@@ -50,6 +51,7 @@
 
 <section id="page-info" class="page">
   <div class="page-head"><span class="eyebrow">COMPONENT 01</span><h1>SAGIP-INFO</h1><p>Centralized Disaster Information Hub</p></div>
+  <div id="published-info" class="published-content"></div>
   <div class="feature-grid">
     <article class="feature"><span class="symbol blue">ⓘ</span><h2>Disaster Risk Information</h2><p>Access basic information about hazards that may affect the school and community.</p></article>
     <article class="feature"><span class="symbol blue">▤</span><h2>Preparedness Resources</h2><p>Review safety reminders, family preparedness checklists, and downloadable learning materials.</p></article>
@@ -67,6 +69,7 @@
 
 <section id="page-alerto" class="page">
   <div class="page-head"><span class="eyebrow">COMPONENT 02</span><h1>SAGIP-ALERTO</h1><p>Emergency Contacts, Communication Guidance, and Response Procedures</p></div>
+  <div id="published-alerto" class="published-content"></div>
   <div class="alert-note warning"><b>Contact directory is not yet verified.</b><p>Replace the placeholders below with current, approved contact details before relying on this directory.</p></div>
   <div class="contact-grid">
     <article class="contact"><span>School</span><h2>Lobo Elementary School</h2><p>School Head / DRRM Coordinator</p><b>Contact details to be added</b></article>
@@ -78,6 +81,7 @@
 
 <section id="page-bantay" class="page">
   <div class="page-head"><span class="eyebrow">COMPONENT 03</span><h1>SAGIP-BANTAY</h1><p>School Hazard Awareness, Mapping, and Student-Led Safety Reporting</p></div>
+  <div id="published-bantay" class="published-content"></div>
   <div class="content"><h2>School hazard and safety observation form</h2><p class="muted">For supervised reporting of observed hazards. Learners should ask a teacher or trusted adult for help. Do not approach dangerous areas to inspect or photograph a hazard.</p>
     <form id="hazardForm" class="form-grid">
       <label>Area observed<input name="area" required maxlength="120" placeholder="e.g. pathway, classroom, school grounds"></label>
@@ -95,6 +99,7 @@
 
 <section id="page-kaagapay" class="page">
   <div class="page-head"><span class="eyebrow">COMPONENT 04</span><h1>SAGIP-KAAGAPAY</h1><p>Family and Community Preparedness and Coordination</p></div>
+  <div id="published-kaagapay" class="published-content"></div>
   <div class="feature-grid">
     <article class="feature"><span class="symbol amber">⌂</span><h2>Family Preparedness</h2><p>Encourage families to identify safe meeting places, emergency contacts, and household needs.</p></article>
     <article class="feature"><span class="symbol amber">♧</span><h2>Barangay Coordination</h2><p>Support coordination between the school, barangay officials, parents, and response partners.</p></article>
@@ -124,6 +129,7 @@
 
 <section id="page-sigurado" class="page">
   <div class="page-head"><span class="eyebrow">COMPONENT 05</span><h1>SAGIP-SIGURADO</h1><p>Monitoring, Evaluation, and Continuous Improvement</p></div>
+  <div id="published-sigurado" class="published-content"></div>
   <div class="stats">
     <div><span>Safety observations</span><b id="hazardCount">0</b><small>Saved on this device</small></div>
     <div><span>Community activities</span><b id="activityCount">0</b><small>Saved on this device</small></div>
@@ -131,6 +137,52 @@
   </div>
   <div class="content"><h2>Suggested monitoring indicators</h2><ul class="indicator-list"><li>School hazards identified, prioritized, and referred for action</li><li>Corrective and preventive actions completed or pending</li><li>Preparedness orientations, drills, and learning activities conducted</li><li>Participation of teachers, learners, parents, and barangay partners</li><li>Emergency information and contact directory reviewed and updated</li><li>Preparedness materials and emergency supplies checked</li><li>Feedback and lessons used to improve school DRRM activities</li></ul><p class="muted">The school DRRM team should define targets, responsible persons, evidence, and monitoring schedule before official reporting.</p></div>
   <div class="content"><h2>Export local records</h2><p class="muted">Download demonstration records saved in this browser for review. Protect any exported files containing sensitive information.</p><button id="exportAll" class="btn primary">Export monitoring records (JSON)</button><p id="exportMsg" class="message" role="status"></p></div>
+</section>
+
+
+<section id="page-admin" class="page">
+  <div class="page-head"><span class="eyebrow">AUTHORIZED CONTENT MANAGEMENT</span><h1>SAGIP-ADMIN</h1><p>Manage approved information across all five PROJECT SAGIP-LOBO components.</p></div>
+  <div id="adminSetupNotice" class="alert-note warning"><b>Firebase setup is required.</b><p>Follow FIREBASE_SETUP.txt to connect authentication, database, storage, and security rules. The administrator dashboard will not accept logins until Firebase is configured.</p></div>
+  <div id="adminSignedOut" class="content">
+    <h2>Administrator sign in</h2>
+    <p class="muted">Only accounts provisioned by the Firebase project owner with the School Head or DRRM Coordinator role can manage content.</p>
+    <form id="adminLoginForm" class="form-grid">
+      <label class="wide">Administrator email<input type="email" name="email" autocomplete="username" required></label>
+      <label class="wide">Password<input type="password" name="password" autocomplete="current-password" required></label>
+      <button class="btn primary wide" type="submit">Sign in securely</button>
+    </form>
+    <p id="adminLoginMessage" class="message" role="status"></p>
+  </div>
+  <div id="adminSignedIn" class="hidden">
+    <div class="content admin-toolbar">
+      <div><b id="adminIdentity">Signed in</b><p class="muted">Authorized content manager</p></div>
+      <button id="adminSignOut" class="btn secondary">Sign out</button>
+    </div>
+    <div class="content">
+      <h2 id="contentFormTitle">Add information</h2>
+      <form id="contentForm" class="form-grid">
+        <input type="hidden" name="id">
+        <label>Component<select name="component" required><option value="info">SAGIP-INFO</option><option value="alerto">SAGIP-ALERTO</option><option value="bantay">SAGIP-BANTAY</option><option value="kaagapay">SAGIP-KAAGAPAY</option><option value="sigurado">SAGIP-SIGURADO</option></select></label>
+        <label>Content type<select name="type"><option>Announcement</option><option>Safety Guide</option><option>Emergency Procedure</option><option>Contact Information</option><option>Hazard Map</option><option>Learning Material</option><option>Monitoring Record</option><option>Other</option></select></label>
+        <label class="wide">Title<input name="title" maxlength="160" required></label>
+        <label class="wide">Description / information<textarea name="body" rows="5" maxlength="10000" required></textarea></label>
+        <label class="wide">Attach file (PDF, image, video, Word, or Excel; max 25 MB)<input name="file" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.mp4,.webm,.doc,.docx,.xls,.xlsx"></label>
+        <label>Status<select name="status"><option value="draft">Save as draft</option><option value="published">Publish after validation</option></select></label>
+        <div class="wide form-actions"><button class="btn primary" type="submit">Save content</button><button id="contentCancel" class="btn secondary" type="button">Clear form</button></div>
+      </form>
+      <p id="contentSaveMessage" class="message" role="status"></p>
+    </div>
+    <div class="content">
+      <h2>Manage existing content</h2>
+      <label class="filter-label">Filter by component<select id="adminFilter"><option value="all">All components</option><option value="info">SAGIP-INFO</option><option value="alerto">SAGIP-ALERTO</option><option value="bantay">SAGIP-BANTAY</option><option value="kaagapay">SAGIP-KAAGAPAY</option><option value="sigurado">SAGIP-SIGURADO</option></select></label>
+      <div id="adminContentList" class="saved-list">Sign in to view managed content.</div>
+    </div>
+    <div class="content">
+      <h2>Hazard observation review</h2>
+      <p class="muted">This section will show centrally submitted reports after the report-submission feature is connected to the database. Phase 1 device-local reports are not automatically uploaded.</p>
+      <div id="adminReportList" class="saved-list">No shared reports connection yet.</div>
+    </div>
+  </div>
 </section>
 
 <section id="page-about" class="page">
@@ -141,4 +193,5 @@
 </main>
 </div>
 <script src="app.js"></script>
+<script type="module" src="admin.js"></script>
 </body></html>

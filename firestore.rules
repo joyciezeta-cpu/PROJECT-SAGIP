@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.active == true
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['School Head', 'DRRM Coordinator'];
+    }
+
+    // Published content is readable by visitors. Drafts and archived items are admin-only.
+    match /content/{contentId} {
+      allow read: if resource.data.status == 'published' || isAdmin();
+      allow create: if isAdmin()
+        && request.resource.data.createdBy == request.auth.uid
+        && request.resource.data.component in ['info','alerto','bantay','kaagapay','sigurado']
+        && request.resource.data.status in ['draft','published'];
+      allow update: if isAdmin()
+        && request.resource.data.component in ['info','alerto','bantay','kaagapay','sigurado'];
+      allow delete: if isAdmin();
+    }
+
+    // A user's own profile is readable by that user; only project owner provisions roles.
+    // Do not allow users to grant themselves admin roles from the client.
+    match /users/{userId} {
+      allow read: if signedIn() && request.auth.uid == userId;
+      allow write: if false;
+    }
+
+    // Placeholder for future shared incident reports. Only admins can review/manage.
+    match /reports/{reportId} {
+      allow read, update: if isAdmin();
+      allow create: if false;
+      allow delete: if isAdmin();
+    }
+  }
+}

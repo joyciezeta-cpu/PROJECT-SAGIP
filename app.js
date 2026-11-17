@@ -1,6 +1,6 @@
 const DB={hazards:"sagip_hazards_v1",activities:"sagip_activities_v1",family:"sagip_family_v1"};
 const $=id=>document.getElementById(id);
-const pages=["home","info","alerto","bantay","kaagapay","sigurado","about"];
+const pages=["home","info","alerto","bantay","kaagapay","sigurado","admin","about"];
 function get(key){try{return JSON.parse(localStorage.getItem(key)||"[]")}catch{return []}}
 function put(key,val){localStorage.setItem(key,JSON.stringify(val))}
 function safe(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
