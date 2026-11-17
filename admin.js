@@ -22,7 +22,7 @@ const $ = id => document.getElementById(id);
 const setupNotice=$("adminSetupNotice"), signedOut=$("adminSignedOut"), signedIn=$("adminSignedIn");
 const configured = firebaseConfig.apiKey.startsWith("AIza") && !firebaseConfig.projectId.includes("PASTE_");
 let auth,db,currentUser=null,currentRole=null,editing=null;
-const componentNames={info:"SAGIP-INFO",alerto:"SAGIP-ALERTO",bantay:"SAGIP-BANTAY",kaagapay:"SAGIP-KAAGAPAY",sigurado:"SAGIP-SIGURADO"};
+const componentNames={info:"SAGIP-INFO",alerto:"SAGIP-ALERTO",bantay:"SAGIP-BANTAY",kaagapay:"SAGIP-KAAGAPAY",sigurado:"SAGIP-SIGURADO"
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function say(id,msg){if($(id))$(id).textContent=msg}
 if(!configured){setupNotice.classList.remove("hidden");say("adminLoginMessage","Firebase has not been configured yet.");}
