@@ -1,0 +1,18 @@
+{
+  "name": "Project KALASAG - Lobo Elementary School",
+  "short_name": "KALASAG",
+  "description": "School and Community Disaster Preparedness System",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f7f5",
+  "theme_color": "#174c36",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/kalasag-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

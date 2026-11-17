@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174c36">
+  <meta name="description" content="Project KALASAG - School and Community Disaster Preparedness">
+  <title>Project KALASAG | Lobo Elementary School</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/kalasag-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Project KALASAG home">
+      <img src="assets/kalasag-icon.svg" alt="" class="brand-mark">
+      <span><strong>PROJECT KALASAG</strong><small>LOBO ELEMENTARY SCHOOL</small></span>
+    </a>
+    <div class="top-actions">
+      <span id="connection" class="status-pill"><i></i> Checking connection</span>
+      <button id="installBtn" class="btn btn-light hidden" type="button">Install app</button>
+      <button id="menuBtn" class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar">
+      <div class="role-panel">
+        <label for="roleSelect">Preview as</label>
+        <select id="roleSelect">
+          <option value="public">Learner / Parent / Visitor</option>
+          <option value="barangay">Barangay Official</option>
+          <option value="teacher">Teacher</option>
+          <option value="drrm">DRRM Coordinator</option>
+          <option value="admin">School Head / Administrator</option>
+        </select>
+        <small>Demonstration role selector – not secure authentication.</small>
+      </div>
+      <nav aria-label="Main navigation">
+        <a class="nav-link active" href="#home" data-page="home"><span>⌂</span> Home</a>
+        <a class="nav-link" href="#about" data-page="about"><span>◈</span> About KALASAG</a>
+        <a class="nav-link" href="#emergency" data-page="emergency"><span>✚</span> Emergency Center</a>
+        <a class="nav-link" href="#learning" data-page="learning"><span>▤</span> DRRM Learning Hub</a>
+        <a class="nav-link" href="#incident" data-page="incident" data-access="report"><span>⚑</span> Incident Reporting</a>
+        <a class="nav-link" href="#risk" data-page="risk" data-access="staff"><span>✓</span> Risk Assessment</a>
+        <a class="nav-link" href="#monitoring" data-page="monitoring" data-access="monitor"><span>▦</span> DRRM Monitoring</a>
+        <a class="nav-link" href="#contacts" data-page="contacts"><span>☎</span> Emergency Contacts</a>
+      </nav>
+      <div class="sidebar-note">
+        <strong>Preparedness starts with us.</strong>
+        <p>Know the risks. Prepare together. Respond safely.</p>
+      </div>
+    </aside>
+
+    <main id="main" class="main-content">
+      <section id="page-home" class="page active">
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">SCHOOL & COMMUNITY SAFETY</span>
+            <h1>Ready today.<br><em>Safer tomorrow.</em></h1>
+            <p>A shared information and preparedness hub for Lobo Elementary School and its partner community.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#emergency">View emergency guides</a>
+              <a class="btn btn-outline" href="#about">Explore KALASAG</a>
+            </div>
+          </div>
+          <div class="hero-symbol"><img src="assets/kalasag-icon.svg" alt="KALASAG shield emblem"></div>
+        </div>
+        <div class="welcome-row">
+          <div><span class="eyebrow">WELCOME TO</span><h2>Project KALASAG</h2><p class="muted">Knowledge and Leadership for a Safe and Guided School</p></div>
+          <span class="offline-tag">● Offline-ready information</span>
+        </div>
+        <div class="quick-grid">
+          <a class="quick-card" href="#emergency"><span class="quick-icon red">✚</span><strong>Emergency Center</strong><small>Safety steps and response guides</small></a>
+          <a class="quick-card" href="#learning"><span class="quick-icon blue">▤</span><strong>Learning Hub</strong><small>Preparedness lessons and activities</small></a>
+          <a class="quick-card" href="#incident"><span class="quick-icon amber">⚑</span><strong>Report an Incident</strong><small>Send a report for school follow-up</small></a>
+          <a class="quick-card" href="#contacts"><span class="quick-icon green">☎</span><strong>Emergency Contacts</strong><small>Find verified local contacts</small></a>
+        </div>
+        <div class="notice">
+          <strong>Important safety reminder</strong>
+          <p>This app supports preparedness and reporting. In an immediate life-threatening emergency, contact the appropriate emergency responders directly and follow official instructions. Do not wait for an app response.</p>
+        </div>
+      </section>
+
+      <section id="page-about" class="page">
+        <div class="page-heading"><span class="eyebrow">OUR INNOVATION</span><h1>About Project KALASAG</h1><p>A school-community initiative for safer learning environments and disaster preparedness.</p></div>
+        <div class="content-card">
+          <h2>Our purpose</h2>
+          <p>Project KALASAG aims to strengthen disaster risk reduction and management through accessible safety information, preparedness education, incident reporting, risk monitoring, and school-community collaboration.</p>
+          <h2>Our guiding priorities</h2>
+          <div class="principle-grid">
+            <div><b>01</b><strong>Know the risks</strong><p>Identify hazards and understand possible impacts.</p></div>
+            <div><b>02</b><strong>Prepare together</strong><p>Build knowledge and practice safe actions.</p></div>
+            <div><b>03</b><strong>Respond safely</strong><p>Follow established procedures and coordinate with responders.</p></div>
+            <div><b>04</b><strong>Learn and improve</strong><p>Review reports, drills, and monitoring results.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-emergency" class="page">
+        <div class="page-heading"><span class="eyebrow">BE INFORMED</span><h1>Emergency Preparedness Center</h1><p>Basic reminders for common hazards. Always follow the school emergency plan and instructions from authorities.</p></div>
+        <div class="guide-grid">
+          <article class="guide-card"><span class="guide-symbol red">〰</span><h2>Earthquake</h2><ol><li>DROP, COVER, and HOLD ON.</li><li>Protect your head and neck.</li><li>Stay away from windows and heavy objects.</li><li>When shaking stops, evacuate calmly if instructed.</li><li>Expect aftershocks and follow the designated assembly procedure.</li></ol></article>
+          <article class="guide-card"><span class="guide-symbol blue">☂</span><h2>Typhoon / Severe Weather</h2><ol><li>Monitor official weather and local advisories.</li><li>Stay indoors and away from floodwater.</li><li>Keep emergency supplies and charged devices ready.</li><li>Follow class suspension and evacuation announcements.</li><li>Never cross moving floodwater.</li></ol></article>
+          <article class="guide-card"><span class="guide-symbol amber">♨</span><h2>Fire</h2><ol><li>Raise the alarm and notify responsible adults.</li><li>Evacuate using the designated safe route.</li><li>Stay low if there is smoke.</li><li>Never return to a burning building.</li><li>Use a fire extinguisher only if trained, safe, and with a clear exit.</li></ol></article>
+          <article class="guide-card"><span class="guide-symbol green">✚</span><h2>Medical Emergency</h2><ol><li>Alert the teacher or designated first aider.</li><li>Keep the area safe and give the person space.</li><li>Do not move a seriously injured person unless there is immediate danger.</li><li>Request qualified medical assistance.</li><li>Share only necessary information with responders.</li></ol></article>
+        </div>
+        <div class="notice"><strong>School-specific information must be added.</strong><p>Insert the approved evacuation map, assembly areas, routes, and school emergency procedures before public deployment.</p></div>
+      </section>
+
+      <section id="page-learning" class="page">
+        <div class="page-heading"><span class="eyebrow">LEARN • PRACTICE • PREPARE</span><h1>DRRM Learning Hub</h1><p>Short learning topics for learners, parents, teachers, and community members.</p></div>
+        <div class="learning-list">
+          <article class="learning-card"><span>01</span><div><h2>Know your hazards</h2><p>Learn about hazards that may affect the school and community, including strong winds, flooding, earthquakes, and fire.</p><small>Suggested activity: Draw a simple hazard map with an adult.</small></div></article>
+          <article class="learning-card"><span>02</span><div><h2>Prepare an emergency go-bag</h2><p>Discuss safe drinking water, ready-to-eat food, flashlight, whistle, basic first-aid supplies, and important contact details.</p><small>Suggested activity: Make a family preparedness checklist.</small></div></article>
+          <article class="learning-card"><span>03</span><div><h2>Know your safe places</h2><p>Ask your teacher or barangay officials about approved evacuation areas and safe routes.</p><small>Suggested activity: Practice the approved evacuation route with supervision.</small></div></article>
+          <article class="learning-card"><span>04</span><div><h2>Help without putting yourself at risk</h2><p>Stay calm, inform a trusted adult, follow instructions, and never enter unsafe areas to rescue belongings.</p><small>Suggested activity: Role-play how to report an emergency to an adult.</small></div></article>
+        </div>
+      </section>
+
+      <section id="page-incident" class="page">
+        <div class="page-heading"><span class="eyebrow">COMMUNITY REPORTING</span><h1>Incident Reporting</h1><p>Submit a report for review by authorized school personnel. Do not use this form as an emergency hotline.</p></div>
+        <form id="incidentForm" class="content-card form-card">
+          <div class="form-grid">
+            <label>Type of incident<select name="type" required><option value="">Select incident type</option><option>Fire / Smoke</option><option>Earthquake-related concern</option><option>Severe weather / Flooding</option><option>Injury / Medical concern</option><option>Structural or electrical hazard</option><option>Security concern</option><option>Other</option></select></label>
+            <label>Location / area<input name="location" required maxlength="120" placeholder="e.g. school pathway, nearby sitio"></label>
+            <label>Date observed<input name="date" type="date" required></label>
+            <label>Urgency<select name="urgency" required><option>For monitoring</option><option>Needs prompt attention</option><option>Urgent – notify responders directly</option></select></label>
+            <label class="full">What happened or what hazard was observed?<textarea name="details" required rows="4" maxlength="1000" placeholder="Describe the concern. Do not include unnecessary personal or sensitive information."></textarea></label>
+            <label>Reporter category<select name="reporter" required><option>Learner / Parent</option><option>Teacher / School Personnel</option><option>Barangay Official</option><option>Community Member</option></select></label>
+            <label>Contact details (optional)<input name="contact" maxlength="100" placeholder="Provide only if follow-up is needed"></label>
+          </div>
+          <div class="notice small-notice"><strong>Privacy reminder</strong><p>Do not submit passwords, medical records, or unnecessary details about children. This demonstration stores reports only on this device.</p></div>
+          <button class="btn btn-primary" type="submit">Save incident report</button>
+          <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+        <div class="content-card"><div class="section-title"><div><h2>Reports saved on this device</h2><p class="muted">Demo records; not yet shared with the school.</p></div><button id="exportReports" class="btn btn-outline btn-small" type="button">Export CSV</button></div><div id="reportList" class="report-list"><p class="muted">No reports saved on this device.</p></div></div>
+      </section>
+
+      <section id="page-risk" class="page">
+        <div class="page-heading"><span class="eyebrow">SCHOOL SAFETY</span><h1>Risk Assessment</h1><p>A starter checklist for school personnel to identify concerns and record follow-up actions.</p></div>
+        <form id="riskForm" class="content-card form-card">
+          <div class="form-grid">
+            <label>Area inspected<input name="area" required placeholder="e.g. classroom, electrical area"></label>
+            <label>Hazard category<select name="hazard" required><option value="">Select category</option><option>Fire / Electrical</option><option>Structural</option><option>Weather / Flood</option><option>Slip, trip, or fall</option><option>Health / Sanitation</option><option>Security</option><option>Other</option></select></label>
+            <label>Observed condition<select name="condition" required><option>For monitoring</option><option>Needs corrective action</option><option>Immediate attention required</option></select></label>
+            <label>Inspection date<input name="date" type="date" required></label>
+            <label class="full">Recommended action<textarea name="action" rows="3" required placeholder="Describe a practical corrective or preventive action."></textarea></label>
+          </div>
+          <button class="btn btn-primary" type="submit">Save checklist entry</button>
+          <p id="riskMessage" class="form-message" role="status"></p>
+        </form>
+        <div class="content-card"><h2>Local inspection entries</h2><div id="riskList" class="report-list"><p class="muted">No entries saved on this device.</p></div></div>
+      </section>
+
+      <section id="page-monitoring" class="page">
+        <div class="page-heading"><span class="eyebrow">TRACK • REVIEW • IMPROVE</span><h1>DRRM Monitoring</h1><p>Overview of demonstration records stored on this device.</p></div>
+        <div class="stats-grid"><div class="stat-card"><span>Incident reports</span><strong id="incidentCount">0</strong><small>Saved locally</small></div><div class="stat-card"><span>Risk entries</span><strong id="riskCount">0</strong><small>Saved locally</small></div><div class="stat-card"><span>Connection</span><strong id="monitorConnection">—</strong><small>Current device status</small></div></div>
+        <div class="content-card"><h2>Suggested monitoring indicators</h2><ul class="indicator-list"><li>School hazards identified and prioritized</li><li>Corrective actions completed and pending</li><li>Emergency drills conducted and evaluated</li><li>Teachers and community members oriented</li><li>Emergency supplies checked and replenished</li><li>Evacuation information reviewed and updated</li></ul><p class="muted">These are proposed indicators. Agree on definitions, targets, responsible persons, and reporting periods before official use.</p></div>
+      </section>
+
+      <section id="page-contacts" class="page">
+        <div class="page-heading"><span class="eyebrow">GET HELP</span><h1>Emergency Contacts</h1><p>Use verified contact information. Replace the placeholders below before launching this app.</p></div>
+        <div class="contact-warning">⚠ Contact directory is not yet verified. Do not rely on placeholder entries during an emergency.</div>
+        <div class="contact-grid">
+          <div class="contact-card"><span>School</span><h2>Lobo Elementary School</h2><p>School Head / DRRM Coordinator</p><strong>To be added by the school</strong></div>
+          <div class="contact-card"><span>Community</span><h2>Barangay Officials</h2><p>Punong Barangay / Barangay DRRM contact</p><strong>To be verified</strong></div>
+          <div class="contact-card"><span>Responders</span><h2>Local Emergency Services</h2><p>City / Municipal DRRM Office, BFP, PNP, health facility</p><strong>Insert verified local numbers</strong></div>
+        </div>
+      </section>
+
+      <footer class="footer"><span>PROJECT KALASAG • Lobo Elementary School</span><span>Preparedness • Partnership • Safety</span></footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
